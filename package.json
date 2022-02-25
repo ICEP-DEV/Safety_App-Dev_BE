@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/ICEP-DEV/Safety_App-Dev_BE#readme",
   "dependencies": {
-    "body-parser": "^1.19.1",
-    "express": "^4.17.2",
+    "body-parser": "^1.19.2",
+    "express": "^4.17.3",
     "mysql": "^2.18.1"
   },
   "devDependencies": {
