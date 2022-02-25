@@ -3,8 +3,13 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+// routes
 const router = require('./routes/testimonial_api');
 const router = require('./routes/reportapi');
+const router = require('./routes/vecapi');
+//if complain about this routes duplicate use this
+//const router = require('./routes');
+
 
 const app = express();
 const port = process.env.PORT || 5001
