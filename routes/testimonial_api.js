@@ -21,7 +21,7 @@ router.get('/v/', (req, res) => {
     pool.getConnection((err, connection) => {
         if(err) throw err
         console.log('connected as id ' + connection.threadId)
-        connection.query('SELECT * from testimonial', (err, rows) => {
+        connection.query('SELECT user,testimonial_descr,testimonial_date from testimonial', (err, rows) => {
             connection.release() // return the connection to pool
 
             if (!err) {
