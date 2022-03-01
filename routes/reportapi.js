@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const Connection = require('mysql/lib/Connection');
-const router = express.Router();
+const routerReportApi = express.Router();
 
 
 //mySql connection 
@@ -17,11 +17,11 @@ const pool = mysql.createPool({
 })
 //get all reported incident
 
-router.get('/viewreport/', (req, res) => {
+routerReportApi.get('/viewreport/', (req, res) => {
     pool.getConnection((err, connection) => {
         if(err) throw err
         console.log('connected as id ' + connection.threadId)
-        connection.query('SELECT * from Incident', (err, rows) => {
+        connection.query('SELECT * from incident', (err, rows) => {
             connection.release() // return the connection to pool
 
             if (!err) {
@@ -38,7 +38,7 @@ router.get('/viewreport/', (req, res) => {
 
 //report an incident
 
-router.post('/reportincident/', (req, res) => {
+routerReportApi.post('/reportincident/', (req, res) => {
 
     pool.getConnection((err, connection) => {
         if(err) throw err
@@ -59,4 +59,4 @@ router.post('/reportincident/', (req, res) => {
     })
 });
 
-module.exports = router;
+module.exports = routerReportApi;

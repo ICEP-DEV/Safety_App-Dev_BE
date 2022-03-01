@@ -2,13 +2,10 @@
 
 const express = require('express');
 const bodyParser = require('body-parser');
+const routerReportApi = require('./routes/reportapi');
+const routerTestimonialAPI = require('./routes/testimonial_api');
+const routerVECApi = require('./routes/vecapi');
 
-// routes
-const router = require('./routes/testimonial_api');
-const router = require('./routes/reportapi');
-const router = require('./routes/vecapi');
-//if complain about this routes duplicate use this
-//const router = require('./routes');
 
 
 const app = express();
@@ -18,7 +15,9 @@ app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 //calling path
-app.use('/',router);
+app.use('/',routerReportApi);
+app.use('/',routerTestimonialAPI);
+app.use('/',routerVECApi);
 
 
 //Display on console log
