@@ -1,9 +1,8 @@
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const Connection = require('mysql/lib/Connection');
-const routerVECApi = express.Router();
+const router = express.Router();
 
 
 //mySql connection 
@@ -17,7 +16,7 @@ const pool = mysql.createPool({
 })
 
 //get all CHAT_BOX chats
-routerVECApi.get('/api/v/', (req, res) => 
+routerVECApi.get('/api/viewchat/', (req, res) => 
 {
     pool.getConnection((err, connection) => 
     {
@@ -39,35 +38,11 @@ routerVECApi.get('/api/v/', (req, res) =>
             console.log('The data from CHAT_BOX table is : \n', rows)
         })
     })
-})
+} )
 
-//get specific CHAT_BOX chats
-routerVECApi.get('/api/v/:vec_id', (req, res) => 
-{
-
-    const chat_id = request.params.chat_id;
-
-    pool.getConnection((err, connection) => {
-        if(err) throw err
-        console.log('connected as id ' + connection.threadId)
-        connection.query('SELECT * FROM CHAT_BOX WHERE chat_id = ?', chat_id, (err, rows) => 
-        {
-            connection.release() // return the connection to pool
-
-            if (!err) {
-                res.send(rows)
-            } else {
-                console.log(err)
-            }
-
-            // optional
-            console.log('The data from CHAT_BOX table is : \n', rows)
-        })
-    })
-})
 
 //add CHAT_BOX chat 
-routerVECApi.post('/api/p/', (req, res) => 
+routerVECApi.post('/api/postchat/', (req, res) => 
 {
 
     pool.getConnection((err, connection) => 
@@ -92,5 +67,6 @@ routerVECApi.post('/api/p/', (req, res) =>
         })
     })
 });
+
 
 module.exports = routerVECApi;
