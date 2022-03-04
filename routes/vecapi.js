@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const Connection = require('mysql/lib/Connection');
-const router = express.Router();
+const routerVECApi = express.Router();
 
 
 //mySql connection 

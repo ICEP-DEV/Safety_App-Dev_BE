@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const Connection = require('mysql/lib/Connection');
-const router = express.Router();
+const routerTestimonialAPI= express.Router();
 
 
 //mySql connection 
@@ -17,7 +17,7 @@ const pool = mysql.createPool({
 })
 
 //Call
-router.get('/v/', (req, res) => {
+routerTestimonialAPI.get('/v/', (req, res) => {
     pool.getConnection((err, connection) => {
         if(err) throw err
         console.log('connected as id ' + connection.threadId)
@@ -38,7 +38,7 @@ router.get('/v/', (req, res) => {
 
 
 
-router.post('/r/', (req, res) => {
+routerTestimonialAPI.post('/r/', (req, res) => {
 
     pool.getConnection((err, connection) => {
         if(err) throw err
@@ -59,5 +59,5 @@ router.post('/r/', (req, res) => {
     })
 });
 
-module.exports = router;
+module.exports = routerTestimonialAPI;
 
