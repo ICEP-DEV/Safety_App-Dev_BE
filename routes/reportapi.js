@@ -44,7 +44,7 @@ routerReportApi.post('/reportincident/', (req, res) => {
         if(err) throw err
         
         const params = req.body
-        connection.query('INSERT INTO Incident SET ?', params, (err, rows) => {
+        connection.query('INSERT INTO incident SET ?', params, (err, rows) => {
         connection.release() // return the connection to pool
         if (!err) {
             res.send(`Successfully reported incident type` + params.name)
