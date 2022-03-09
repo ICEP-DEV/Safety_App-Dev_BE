@@ -2,8 +2,9 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const routerReportApi = require('./routes/reportapi');
-const routerTestimonialAPI = require('./routes/testimonial_api');
+const routerTestimonialApi = require('./routes/testimonial_api');
 const routerVECApi = require('./routes/vecapi');
+
 
 
 
@@ -16,7 +17,7 @@ app.use(bodyParser.json())
 
 //calling path
 app.use('/',routerReportApi);
-app.use('/',routerTestimonialAPI);
+app.use('/',routerTestimonialApi);
 app.use('/',routerVECApi);
 
 

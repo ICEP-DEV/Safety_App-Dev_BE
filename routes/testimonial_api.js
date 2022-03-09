@@ -4,18 +4,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql');
 const Connection = require('mysql/lib/Connection');
-const router = express.Router();
+const routerTestimonialApi = express.Router();
 
 const pool = mysql.createPool({
     connectionLimit   :10,
-    host              : 'localhost',
-    user              : 'root',
-    password          : '',
-    database          : 'GBV'
+    host              : 'eu-cdbr-west-02.cleardb.net',
+    user              : 'b51544d9260432',
+    password          : 'dbd5ef6b',
+    database          : 'heroku_44548bd383ff010'
 
 })
 
-router.get('/get/', (req, res) => 
+routerTestimonialApi.get('/get/', (req, res) => 
 {
     pool.getConnection((err, connection) => 
     {
@@ -40,7 +40,7 @@ router.get('/get/', (req, res) =>
 } )
 
 
-router.post('/post/', (req, res) => 
+routerTestimonialApi.post('/post/', (req, res) => 
 {
 
     pool.getConnection((err, connection) => 
@@ -66,5 +66,5 @@ router.post('/post/', (req, res) =>
     })
 });
 
-module.exports = router;
+module.exports = routerTestimonialApi;
 
