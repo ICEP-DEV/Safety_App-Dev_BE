@@ -9,12 +9,13 @@ const routerReportApi = express.Router();
 //mySql connection 
 const pool = mysql.createPool({
     connectionLimit   :10,
-    host              : 'localhost',
-    user              : 'root',
-    password          : '',
-    database          : 'GBV'
+    host              : 'eu-cdbr-west-02.cleardb.net',
+    user              : 'b51544d9260432',
+    password          : 'dbd5ef6b',
+    database          : 'heroku_44548bd383ff010'
 
 })
+
 //get all reported incident
 
 routerReportApi.get('/viewreport/', (req, res) => {
