@@ -77,6 +77,7 @@ router.post('/auth_reg', function(req, res, next){
       if(result.length > 0){
       
         console.log('User already registered : \n')
+         res.send('Account already registered')
       //  res.redirect('/');
       }else{
 
@@ -87,6 +88,7 @@ router.post('/auth_reg', function(req, res, next){
           
           if(err) throw err;
           console.log('Account registered : \n')
+           res.send('Account successfully registered')
        //   res.redirect('/');
         });
       }
