@@ -1,0 +1,13 @@
+{
+        "id": 1,
+        "user_id": "217146380",
+        "surname": "Dlamini",
+        "name": "Michael ",
+        "other_contact": "0612686464",
+        "gender": "Male",
+        "address": "Nigel",
+        "trusted_contact": "0725678716",
+        "email": "mike@gmail.com",
+        "password": "a",
+        "status": "true"
+    }
