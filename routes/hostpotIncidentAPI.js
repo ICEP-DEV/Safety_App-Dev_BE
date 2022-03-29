@@ -109,7 +109,7 @@ RouterHostpotAPI.get('/hospot/area_with_mostIncident', (req, res) =>
 
 
 //most reported incident type top 10
-RouterHostpotAPI.get('/hospot/top10TypeReportedIncidet', (req, res) => 
+RouterHostpotAPI.get('/hospot/top10TypeReportedIncident', (req, res) => 
 {
     pool.getConnection((err, connection) => {
         if(err) throw err
@@ -131,7 +131,7 @@ RouterHostpotAPI.get('/hospot/top10TypeReportedIncidet', (req, res) =>
 });
 
 //most reported incident type lowest 10
-RouterHostpotAPI.get('/hospot/top10TypeReportedIncidet', (req, res) => 
+RouterHostpotAPI.get('/hospot/lowest10TypeReportedIncident', (req, res) => 
 {
     pool.getConnection((err, connection) => {
         if(err) throw err
