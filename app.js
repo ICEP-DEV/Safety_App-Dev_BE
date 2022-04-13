@@ -1,29 +1,48 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const routerReportApi = require('./routes/reportapi');
-const routerTestimonialApi = require('./routes/testimonial_api');
-const routerVECApi = require('./routes/vecapi');
-const RouterHostpotAPI = require('./routes/hostpotIncidentAPI');
+var createError = require('http-errors');
+var express = require('express');
+var path = require('path');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var indexRouter = require('./routes/user_registration');
+var usersRouter = require('./routes/users');
+var con = require('./Database/conn');
+var session = require('express-session');
+
+var app = express();
+const port = process.env.PORT || 5000
+app.use(session({
+  secret : 'mikeySession',
+  resave : false,
+  saveUninitialized : true
+}));
+
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 
-const app = express();
-const port = process.env.PORT || 5001
+app.use('/', indexRouter);
+//app.use('/users', usersRouter);
 
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
+// catch 404 and forward to error handler
+/*app.use(function(req, res, next) {
+  next(createError(404));
+});
 
-//calling path
-app.use('/',routerReportApi);
-app.use('/',routerTestimonialApi);
-app.use('/',routerVECApi);
-app.use('/',RouterHostpotAPI);
+// error handler
+app.use(function(err, req, res, next) {
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
+});*/
 
-//Display on console log
-//app.listen(port,()=> console.log('listen on port '+ port))
+//Create Server
 app.listen(port,() => console.log(`Server running on port: http://localhost:${port}`));
 
 
-
-
-
+module.exports = app;

@@ -1,0 +1,26 @@
+create table userr(
+id int(5) primary key AUTO_INCREMENT,
+fullname text not null,
+surname text not null,
+sNumber text not null,
+email text not null,
+contact text not null,
+other_contact text not null,
+address text not null,
+password text not null
+);
+
+
+CREATE TABLE `app_user` (
+  `id` int(50) primary key AUTO_INCREMENT NOT NULL,
+  `user_id` text NOT NULL,
+  `surname` text  NOT NULL,
+  `name` text  NOT NULL,
+  `other_contact` text  NOT NULL,
+  `gender`  text  NOT NULL,
+  `address` text  NOT NULL,
+  `trusted_contact` text  NOT NULL,
+  `email` text  NOT NULL,
+  `password` text  NOT NULL,
+  `status` text  NOT NULL
+)
