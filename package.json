@@ -1,27 +1,17 @@
 {
-  "name": "nodejs-mysql",
+  "name": "all",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node app.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ICEP-DEV/Safety_App-Dev_BE.git"
-  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ICEP-DEV/Safety_App-Dev_BE/issues"
-  },
-  "homepage": "https://github.com/ICEP-DEV/Safety_App-Dev_BE#readme",
   "dependencies": {
-    "body-parser": "^1.19.2",
     "express": "^4.17.3",
-    "mysql": "^2.18.1"
-  },
-  "devDependencies": {
+    "mysql": "^2.18.1",
     "nodemon": "^2.0.15"
   }
 }
