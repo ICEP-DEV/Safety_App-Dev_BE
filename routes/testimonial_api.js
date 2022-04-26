@@ -8,12 +8,13 @@ const routerTestimonialApi = express.Router();
 
 const pool = mysql.createPool({
     connectionLimit   :10,
-    host              : 'eu-cdbr-west-02.cleardb.net',
-    user              : 'b51544d9260432',
-    password          : 'dbd5ef6b',
-    database          : 'heroku_44548bd383ff010'
+    host              : 'us-cdbr-east-05.cleardb.net',
+    user              : 'b87509edf31e02',
+    password          : '6bcccaf8',
+    database          : 'heroku_51fff333e21b873'
 
 })
+
 
 routerTestimonialApi.get('/get/', (req, res) => 
 {
