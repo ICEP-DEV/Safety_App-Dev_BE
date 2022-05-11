@@ -4,6 +4,7 @@ const mysql = require('mysql');
 const Connection = require('mysql/lib/Connection');
 const RouterHostpotAPI = express.Router();
 
+//mySql connection 
 const pool = mysql.createPool({
     connectionLimit   :10,
     host              : 'us-cdbr-east-05.cleardb.net',
@@ -12,7 +13,6 @@ const pool = mysql.createPool({
     database          : 'heroku_51fff333e21b873'
 
 })
-
 
 //top 10 hostpot
 RouterHostpotAPI.get('/hospot/top10', (req, res) => 
