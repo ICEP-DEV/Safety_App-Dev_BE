@@ -1,26 +1,39 @@
 {
-  "name": "login-nodejs-mysql",
+  "name": "nodejs-mysql",
   "version": "1.0.0",
   "description": "",
-  "main": "login.js",
+  "main": "index.js",
   "scripts": {
-    "start": "nodemon login.js"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/deepeshrohilla/login-nodejs-mysql.git"
+    "url": "git+https://github.com/ICEP-DEV/Safety_App-Dev_BE.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/deepeshrohilla/login-nodejs-mysql/issues"
+    "url": "https://github.com/ICEP-DEV/Safety_App-Dev_BE/issues"
   },
-  "homepage": "https://github.com/deepeshrohilla/login-nodejs-mysql#readme",
+  "homepage": "https://github.com/ICEP-DEV/Safety_App-Dev_BE#readme",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.20.0",
-    "express": "^4.18.1",
-    "login": "^0.8.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "debug": "^2.6.9",
+    "express": "^4.18.0",
+    "express-session": "^1.17.2",
+    "http": "^0.0.1-security",
+    "http-errors": "^1.8.1",
+    "morgan": "^1.10.0",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.16"
+    "path": "^0.12.7",
+    "pug": "^3.0.2",
+    "side-channel": "^1.0.4",
+    "socket.io": "^4.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }
