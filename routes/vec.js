@@ -21,7 +21,7 @@ router.get('/api/view/', (req, res) =>
     {
         if(err) throw err
         //console.log('connected as id ' + connection.threadId)
-        connection.query('SELECT * FROM vec', (err, rows) => 
+        connection.query('SELECT * FROM vec ORDER BY vec_id DESC', (err, rows) => 
         {
             connection.release() // return the connection to pool
 
