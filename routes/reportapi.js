@@ -21,7 +21,7 @@ router.get('/viewreport/', (req, res) => {
     pool.getConnection((err, connection) => {
         if(err) throw err
         console.log('connected as id ' + connection.threadId)
-        connection.query('SELECT * from Incident', (err, rows) => {
+        connection.query('SELECT * from Incident  ORDER BY report_num DESC', (err, rows) => {
             connection.release() // return the connection to pool
 
             if (!err) {
