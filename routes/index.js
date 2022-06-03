@@ -33,7 +33,7 @@ router.get('/get/', (req, res) =>
     {
         if(err) throw err
         console.log('connected as id ' + connection.threadId)
-        connection.query('SELECT * FROM app_user', (err, rows) => 
+        connection.query('SELECT * FROM app_user  ORDER BY id DESC', (err, rows) => 
         {
             connection.release() // return the connection to pool
 
