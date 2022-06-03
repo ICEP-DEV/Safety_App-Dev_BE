@@ -1,39 +1,20 @@
 {
-  "name": "nodejs-mysql",
+  "name": "flutter_socket_io_backend",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Socket.IO backend of Flutter App",
+  "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "nodemon app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ICEP-DEV/Safety_App-Dev_BE.git"
-  },
-  "author": "",
+  "author": "abhidiwakar",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ICEP-DEV/Safety_App-Dev_BE/issues"
-  },
-  "homepage": "https://github.com/ICEP-DEV/Safety_App-Dev_BE#readme",
-  "dependencies": {
-    "bcrypt": "^5.0.1",
-    "body-parser": "^1.20.0",
-    "cookie-parser": "^1.4.6",
-    "cors": "^2.8.5",
-    "debug": "^2.6.9",
-    "express": "^4.18.0",
-    "express-session": "^1.17.2",
-    "http": "^0.0.1-security",
-    "http-errors": "^1.8.1",
-    "morgan": "^1.10.0",
-    "mysql": "^2.18.1",
-    "path": "^0.12.7",
-    "pug": "^3.0.2",
-    "side-channel": "^1.0.4",
-    "socket.io": "^4.5.0"
-  },
   "devDependencies": {
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "express": "^4.17.3",
+    "mysql": "^2.18.1",
+    "socket.io": "^4.4.1"
   }
 }

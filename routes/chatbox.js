@@ -7,11 +7,10 @@ const Connection = require('mysql/lib/Connection');
 
 const pool = mysql.createPool({
     connectionLimit   :10,
-    host              : 'us-cdbr-east-05.cleardb.net',
-    user              : 'b87509edf31e02',
-    password          : '6bcccaf8',
-    database          : 'heroku_51fff333e21b873'
-
+    host              : 'localhost',
+    user              : 'root',
+    password          : '',
+    database          : 'gbv'
 })
 
 routerChatBox.get('/api/contacts/', (req, res) => 
@@ -20,9 +19,9 @@ routerChatBox.get('/api/contacts/', (req, res) =>
        {
           if(err) throw err
           console.log('connected as id ' + connection.threadId)
-          connection.query('SELECT  name, surname, description FROM app_user, chat_box WHERE app_user.id = chat_box.user_id ', (err, rows) => 
+          connection.query('SELECT  name, surname, description FROM app_user ORDER BY id DESC', (err, rows) => 
           {
-              connection.release() // return the connection to pool
+              connection.release() 
   
               if (!err) 
               {
@@ -43,9 +42,9 @@ routerChatBox.get('/api/view/', (req, res) =>
     {
         if(err) throw err
         console.log('connected as id ' + connection.threadId)
-        connection.query('SELECT * FROM chat_box', (err, rows) => 
+        connection.query('SELECT * FROM chat_box ORDER BY chat_id DESC', (err, rows) => 
         {
-            connection.release() // return the connection to pool
+            connection.release() 
 
             if (!err) 
             {
@@ -67,7 +66,7 @@ routerChatBox.get('/api/search/:chat_id', (req, res) =>
         console.log('connected as id ' + connection.threadId)
         connection.query('SELECT * FROM chat_box WHERE chat_id = ?', [req.params.chat_id], (err, rows) => 
         {
-            connection.release() // return the connection to pool
+            connection.release() 
 
             if (!err) 
             {
@@ -80,8 +79,7 @@ routerChatBox.get('/api/search/:chat_id', (req, res) =>
         })
     })
 })
-
-//add CHAT_BOX chat 
+ 
 routerChatBox.post('/api/post/', (req, res) => 
 {
 
@@ -92,7 +90,7 @@ routerChatBox.post('/api/post/', (req, res) =>
         const params = req.body
         connection.query('INSERT INTO chat_box SET ?', params, (err, rows) => 
         {
-             connection.release() // return the connection to pool
+             connection.release() 
             if (!err) 
             {
                  res.send(`Successfully Added CHAT_BOX` + params.name)
@@ -113,7 +111,7 @@ routerChatBox.delete('/api/delete/:chat_id', (req, res) =>
         console.log('connected as id ' + connection.threadId)
         connection.query('DELETE FROM chat_box WHERE chat_id = ?', [req.params.chat_id], (err, rows) => 
         {
-            connection.release() // return the connection to pool
+            connection.release() 
 
             if (!err) 
             {
