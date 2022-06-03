@@ -21,7 +21,7 @@ routerInfoCentreAPI.get('/viewevent/', (req, res) => {
     pool.getConnection((err, connection) => {
         if(err) throw err
         
-        connection.query('SELECT title,description,date FROM information_centre WHERE type=event', (err, rows) => {
+        connection.query('SELECT title,description,date FROM information_centre WHERE type=event ORDER BY info_ID DESC', (err, rows) => {
             connection.release() // return the connection to pool
 
             if (!err) {
