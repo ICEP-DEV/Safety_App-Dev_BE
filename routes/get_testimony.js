@@ -20,7 +20,7 @@ routerGetTestimon.get('/getchange/', (req, res) =>
     {
         if(err) throw err
         console.log('connected as id ' + connection.threadId)
-        connection.query('SELECT user,testimonial_descr,testimonial_date FROM testimonial ', (err, rows) => 
+        connection.query('SELECT testimonial_id, user,testimonial_descr,testimonial_date FROM testimonial ', (err, rows) => 
         {
             connection.release() // return the connection to pool
 
